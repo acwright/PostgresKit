@@ -10,6 +10,8 @@
 		F06DAC332242168500F444A4 /* PostgresKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F06DAC292242168500F444A4 /* PostgresKit.framework */; };
 		F06DAC382242168500F444A4 /* PostgresKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06DAC372242168500F444A4 /* PostgresKitTests.swift */; };
 		F06DAC3A2242168500F444A4 /* PostgresKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F06DAC2C2242168500F444A4 /* PostgresKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F06DAC452242183800F444A4 /* PGConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06DAC442242183800F444A4 /* PGConnection.swift */; };
+		F06DAC4822421A3D00F444A4 /* PGResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06DAC4722421A3C00F444A4 /* PGResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,10 @@
 		F06DAC322242168500F444A4 /* PostgresKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostgresKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F06DAC372242168500F444A4 /* PostgresKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostgresKitTests.swift; sourceTree = "<group>"; };
 		F06DAC392242168500F444A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F06DAC432242173800F444A4 /* module.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
+		F06DAC442242183800F444A4 /* PGConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGConnection.swift; sourceTree = "<group>"; };
+		F06DAC4722421A3C00F444A4 /* PGResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGResult.swift; sourceTree = "<group>"; };
+		F06DAC4922421BAC00F444A4 /* PostgresKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PostgresKit.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,7 @@
 		F06DAC1F2242168500F444A4 = {
 			isa = PBXGroup;
 			children = (
+				F06DAC4922421BAC00F444A4 /* PostgresKit.playground */,
 				F06DAC2B2242168500F444A4 /* PostgresKit */,
 				F06DAC362242168500F444A4 /* PostgresKitTests */,
 				F06DAC2A2242168500F444A4 /* Products */,
@@ -71,8 +78,9 @@
 		F06DAC2B2242168500F444A4 /* PostgresKit */ = {
 			isa = PBXGroup;
 			children = (
-				F06DAC2C2242168500F444A4 /* PostgresKit.h */,
-				F06DAC2D2242168500F444A4 /* Info.plist */,
+				F06DAC442242183800F444A4 /* PGConnection.swift */,
+				F06DAC4722421A3C00F444A4 /* PGResult.swift */,
+				F06DAC46224218AD00F444A4 /* Supporting Files */,
 			);
 			path = PostgresKit;
 			sourceTree = "<group>";
@@ -84,6 +92,16 @@
 				F06DAC392242168500F444A4 /* Info.plist */,
 			);
 			path = PostgresKitTests;
+			sourceTree = "<group>";
+		};
+		F06DAC46224218AD00F444A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F06DAC2C2242168500F444A4 /* PostgresKit.h */,
+				F06DAC2D2242168500F444A4 /* Info.plist */,
+				F06DAC432242173800F444A4 /* module.map */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +166,7 @@
 				TargetAttributes = {
 					F06DAC282242168500F444A4 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					F06DAC312242168500F444A4 = {
 						CreatedOnToolsVersion = 10.1;
@@ -194,6 +213,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F06DAC452242183800F444A4 /* PGConnection.swift in Sources */,
+				F06DAC4822421A3D00F444A4 /* PGResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +361,7 @@
 		F06DAC3E2242168500F444A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -359,6 +381,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.infinitetoken.PostgresKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/PostgresKit";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -366,6 +390,7 @@
 		F06DAC3F2242168500F444A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -385,6 +410,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.infinitetoken.PostgresKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/PostgresKit";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
@@ -392,6 +418,7 @@
 		F06DAC412242168500F444A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 6J8NCZC8G6;
@@ -410,6 +437,7 @@
 		F06DAC422242168500F444A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 6J8NCZC8G6;
